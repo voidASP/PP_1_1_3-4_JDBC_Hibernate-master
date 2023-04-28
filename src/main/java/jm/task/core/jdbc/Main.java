@@ -13,16 +13,16 @@ public class Main {
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "root";
 
-    public static void main(String[] args) throws SQLException {
-        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
-//        userDaoJDBC.createUsersTable();
-//        userDaoJDBC.saveUser("Maxim", "Mantulin", (byte) 26);
-//        userDaoJDBC.saveUser("Alexey", "Soshnikov", (byte) 27);
-//        userDaoJDBC.saveUser("Maxim", "Zhelyabovsky", (byte) 28);
-//        userDaoJDBC.saveUser("Alexandr", "Podshyvailov", (byte) 26);
-//        System.out.println(userDaoJDBC.getAllUsers());
-//        userDaoJDBC.dropUsersTable();
-//        System.out.println(userDaoJDBC.getAllUsers());
+    public static void main(String[] args) {
+        UserServiceImpl userService = new UserServiceImpl();
+        userService.createUsersTable();
+        userService.saveUser("Maxim", "Mantulin", (byte) 26);
+        userService.saveUser("Alexey", "Soshnikov", (byte) 27);
+        userService.saveUser("Maxim", "Zhelyabovsky", (byte) 28);
+        userService.saveUser("Alexandr", "Podshyvailov", (byte) 26);
+        System.out.println(userService.getAllUsers());
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
     }
 
     public static Connection getConnection() {
